@@ -15,3 +15,27 @@ variable "public_subnet_az2" {
     description     = "Public subnet az2 cidr block"
     type            = string      
 }
+
+variable "private_app_subnet_az1" {
+    default         = "10.0.2.0/24"
+    description     = "Private app subnet az1 cidr block"
+    type            = string      
+}
+
+variable "private_app_subnet_az2" {
+    default         = "10.0.3.0/24"
+    description     = "Private app subnet az2 cidr block"
+    type            = string      
+}
+
+variable "private_data_subnet_az1" {
+    default         = "10.0.4.0/24"
+    description     = "Private data subnet az1 cidr block"
+    type            = string      
+}
+
+variable "private_data_subnet_az2" {
+    default         = "10.0.5.0/24"
+    description     = "Private data subnet az2 cidr block"
+    type            = string      
+}
