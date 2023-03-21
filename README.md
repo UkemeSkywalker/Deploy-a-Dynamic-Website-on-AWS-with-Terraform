@@ -11,3 +11,4 @@ In this project, I created AWS resources using terraform
 - Internet Gateway
 - Route Tables
 - Route Table Association
+- NAT Gateway
