@@ -44,88 +44,88 @@ resource "aws_security_group" "ssh_security_group" {
     description      = "ssh access"
     from_port        = 22
     to_port          = 22
-    protocol         = "ssh"
-    cidr_blocks      = 
+    protocol         = "tcp"
+    cidr_blocks      = [var.ssh_ip_location]
   }
 
   egress {
-    from_port        = 
-    to_port          = 
-    protocol         = 
-    cidr_blocks      = 
+    from_port        = 0
+    to_port          = 0
+    protocol         = -1
+    cidr_blocks      = ["0.0.0.0/0"]
   }
 
   tags   = {
-    Name = 
+    Name = "ssh security group"
   }
 }
 
 # create security group for the web server
 # terraform aws create security group
 resource "aws_security_group" "webserver_security_group" {
-  name        = 
+  name        = "Web server security group"
   description = "enable http/https access on port 80/443 via alb sg and access on port 22 via ssh sg"
-  vpc_id      = 
+  vpc_id      = aws_vpc.vpc.id
 
   ingress {
     description      = "http access"
-    from_port        = 
-    to_port          = 
-    protocol         = 
-    security_groups  = 
+    from_port        = 80
+    to_port          = 80
+    protocol         = "tcp"
+    security_groups  = [aws_security_group.alb_security_group.id]
   }
 
   ingress {
     description      = "https access"
-    from_port        = 
-    to_port          = 
-    protocol         = 
-    security_groups  = 
+    from_port        = 433
+    to_port          = 433
+    protocol         = "tcp"
+    security_groups  = [aws_security_group.alb_security_group.id]
   }
 
   ingress {
     description      = "ssh access"
-    from_port        = 
-    to_port          = 
-    protocol         = 
-    security_groups  = 
+    from_port        = 22
+    to_port          = 22
+    protocol         = "tcp"
+    security_groups  = [aws_security_group.ssh_security_group.id]
   }
 
   egress {
-    from_port        = 
-    to_port          = 
-    protocol         = 
-    cidr_blocks      = 
+    from_port        = 0
+    to_port          = 0
+    protocol         = -1
+    cidr_blocks      = ["0.0.0.0/0"]
   }
 
   tags   = {
-    Name = 
+    Name = "Webserver security group"
   }
 }
 
 # create security group for the database
 # terraform aws create security group
 resource "aws_security_group" "database_security_group" {
-  name        = 
+  name        = "database security group"
   description = "enable mysql/aurora access on port 3306"
-  vpc_id      = 
+  vpc_id      = aws_vpc.vpc.id
 
   ingress {
-    description      = 
-    from_port        = 
-    to_port          = 
-    protocol         = 
-    security_groups  = 
+    description      = "database securtiy group"
+    from_port        = 3306
+    to_port          = 3306
+    protocol         = "tcp"
+    security_groups  = [aws_security_group.webserver_security_group.id]
   }
 
   egress {
-    from_port        = 
-    to_port          = 
-    protocol         = 
-    cidr_blocks      = 
+    from_port        = 0
+    to_port          = 0
+    protocol         = -1
+    cidr_blocks      = ["0.0.0.0/0"]
   }
 
   tags   = {
-    Name = 
+    Name = "database security group"
   }
 }
