@@ -1,11 +1,11 @@
 # create the subnet group for the rds instance
 resource "aws_db_subnet_group" "database_subnet_group" {
-  name         = 
-  subnet_ids   = 
-  description  = 
+  name         = "database subnet group"
+  subnet_ids   = [var.private_data_subnet_az1_cidr, var.private_data_subnet_az2_cidr]
+  description  = "database subnet group"
 
   tags   = {
-    Name = 
+    Name = "database subnet group"
   }
 }
 
@@ -26,4 +26,3 @@ resource "aws_db_instance" "db_instance" {
   db_name                 = 
   skip_final_snapshot     = 
 }
-Footer
