@@ -40,8 +40,21 @@ variable "private_data_subnet_az2_cidr" {
   type        = string
 }
 
-variable "ssh_security_group_cidr" {
+variable "ssh_ip_location" {
   default     = "0.0.0.0/0"
   description = "ip address to access ssh security group"
+  type        = string
+}
+
+variable "db_username" {
+  default     = "ukemzy"
+  description = "username of mysql instance"
+  type        = string
+}
+
+#Application load balancer variable
+variable "ssl_certificate_arn" {
+  default     = "arn:aws:acm:us-east-1:910883278292:certificate/cda19244-2b5a-4ede-b285-13b7909b5b3c"
+  description = "ssl certificate arn"
   type        = string
 }
