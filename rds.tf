@@ -20,7 +20,7 @@ resource "aws_db_instance" "mysql_db" {
   engine               = "mysql"
   engine_version       = "8.0.31"
   multi_az             = false
-  identifier           = "dev-rds-instance"
+  identifier           = "dev-rds-instance2"
   instance_class       = "db.t2.micro"
   username             = "skywalker"
   password             = "examplepassword"
@@ -30,6 +30,6 @@ resource "aws_db_instance" "mysql_db" {
   vpc_security_group_ids  = [aws_security_group.database_security_group.id]
   availability_zone       = data.aws_availability_zones.available_zones.names[0]
   db_name = "applicationdb"
-  skip_final_snapshot  = true
+  skip_final_snapshot  = false
 
 }
