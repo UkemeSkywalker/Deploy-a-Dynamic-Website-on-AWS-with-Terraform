@@ -11,3 +11,5 @@ resource "aws_sns_topic_subscription" "notification_topic" {
   protocol  = "email"
   endpoint  = var.operator_email
 }
+
+## More comments
