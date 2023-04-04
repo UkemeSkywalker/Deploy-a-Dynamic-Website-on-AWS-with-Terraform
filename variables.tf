@@ -59,6 +59,25 @@ variable "database_snapshot_identifier" {
   type        = string
 }
 
+variable "database_instance_class" {
+  default     = "db.t3.micro"
+  description = " database instance class"
+  type        = string
+}
+
+variable "database_identifier" {
+  default     = "marketsquare-rds"
+  description = "Identifier for database"
+  type        = string
+}
+
+variable "multi_az_deployment" {
+  default     = false
+  description = "create standby db instance"
+  type        = bool
+}
+
+
 #Application load balancer variable
 variable "ssl_certificate_arn" {
   default     = "arn:aws:acm:us-east-1:910883278292:certificate/cda19244-2b5a-4ede-b285-13b7909b5b3c"
