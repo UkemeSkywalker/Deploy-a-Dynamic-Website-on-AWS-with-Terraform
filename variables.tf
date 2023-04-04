@@ -46,9 +46,16 @@ variable "ssh_ip_location" {
   type        = string
 }
 
+# Database Variables
 variable "db_username" {
   default     = "ukemzy"
   description = "username of mysql instance"
+  type        = string
+}
+
+variable "database_snapshot_identifier" {
+  default     = "arn:aws:rds:us-east-1:910883278292:snapshot:marketsquaredb2-snapshot"
+  description = " database snapshot identifier"
   type        = string
 }
 
