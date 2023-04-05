@@ -101,7 +101,19 @@ variable "launch_template_name" {
 }
 
 variable "ec2_image_id" {
-  default     = "marketsquare-launch-template"
-  description = "image id of ec2 instace"
+  default     = "ami-0c40bcd684a4190be"
+  description = "image id of ec2 instance"
+  type        = string
+}
+
+variable "ec2_instance_type" {
+  default     = "t2.micro"
+  description = "ec2 instance type"
+  type        = string
+
+}
+variable "keypair_name" {
+  default     = "Fleetcart-Server-Key"
+  description = "key pair name"
   type        = string
 }
