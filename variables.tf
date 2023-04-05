@@ -91,3 +91,17 @@ variable "operator_email" {
   description = "a valid email"
   type        = string
 }
+
+# Auto scaling group
+
+variable "launch_template_name" {
+  default     = "marketsquare-launch-template"
+  description = "launch template"
+  type        = string
+}
+
+variable "ec2_image_id" {
+  default     = "marketsquare-launch-template"
+  description = "image id of ec2 instace"
+  type        = string
+}
