@@ -10,6 +10,8 @@ In this project, I created AWS resources using terraform
   - private subnets
 - Internet Gateway
 - Route Tables
-- Route Table Association
 - NAT Gateway
 - Security Groups
+- Simple Notification Service
+- Auto Scaling Group
+- Application Load Balancer
