@@ -95,7 +95,7 @@ variable "operator_email" {
 # Auto scaling group
 
 variable "launch_template_name" {
-  default     = "marketsquare-launch-template"
+  default     = "marketsquare-launch-template2"
   description = "launch template"
   type        = string
 }
