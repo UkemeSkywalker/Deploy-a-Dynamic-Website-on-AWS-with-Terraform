@@ -117,3 +117,16 @@ variable "keypair_name" {
   description = "key pair name"
   type        = string
 }
+
+# Route 53 
+variable "domain_name" {
+  default     = "web3legacy.org"
+  description = "domain name"
+  type        = string
+}
+
+variable "record_name" {
+  default     = "www"
+  description = "sub domain name"
+  type        = string
+}
